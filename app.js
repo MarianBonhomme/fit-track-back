@@ -7,11 +7,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+const unityRoutes = require('./routes/unity.routes');
+app.use('/unity', unityRoutes);
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 
-const unityRoutes = require('./routes/unity.routes');
-app.use('/unity', unityRoutes);
+const foodConsumptionRoutes = require('./routes/foodConsumption.routes');
+app.use('/foodConsumption', foodConsumptionRoutes);
 
 // BDD
 const db = require("./models");

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const FoodDaytime = sequelize.define("Food_Daytime", {
+  const FoodConsumption = sequelize.define("FoodConsumption", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -13,33 +13,25 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    daytime_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Daytime',
-        key: 'id'
-      }
-    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
   }, {
     timestamps: true,
     freezeTableName: true,
   })
 
-  FoodDaytime.assiociate = (models) => {
-    FoodDaytime.belongsTo(models.Food, {
+  FoodConsumption.associate = (models) => {
+    FoodConsumption.belongsTo(models.Food, {
       foreignKey: 'food_id',
       as: "food"
     })
-    FoodDaytime.belongsTo(models.Daytime, {
-      foreignKey: 'daytime_id',
-      as: "daytime"
-    })
   }
 
-  return FoodDaytime
+  return FoodConsumption
 }

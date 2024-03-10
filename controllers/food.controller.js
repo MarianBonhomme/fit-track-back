@@ -5,7 +5,6 @@ const foodController = {
     try {
       const foods = await Food.findAll();
       res.json(foods);
-      res.status(200);
     } catch (error) {
       console.error(error);
       res.status(500).send("Server Error");
@@ -21,9 +20,8 @@ const foodController = {
 
       if (food) {
         res.json(food);
-        res.status(200);
       } else {
-        res.status(404).send("Food non trouvée");
+        res.status(404).send(`Food with id ${id} not found`);
       }
     } catch (error) {
       console.error(error);
@@ -50,8 +48,7 @@ const foodController = {
         fat: numericFat,
         unity_id: numericUnityId,
       });
-      
-      console.log(newFood);
+
       res.json(newFood);
     } catch (error) {
       console.error(error);
@@ -71,7 +68,7 @@ const foodController = {
         });
         res.json(updatedFood);
       } else {
-        res.status(404).send("Food not found");
+        res.status(404).send(`Food with id ${id} not found`);
       }
     } catch (error) {
       console.error(error);
@@ -88,7 +85,7 @@ const foodController = {
       if (deletedRows > 0) {
         res.status(200).send("Deleted successfully");
       } else {
-        res.status(404).send("Food not found");
+        res.status(404).send(`Food with id ${id} not found`);
       }
     } catch (error) {
       console.error(error);
