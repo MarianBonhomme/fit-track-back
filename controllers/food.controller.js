@@ -30,13 +30,13 @@ const foodController = {
   },
 
   addOne: async (req, res) => {
-    const { name, id, kcal, prot, carb, fat, unity_id } = req.body;
+    const { name, id, kcal, prot, carb, fat, unity, proportion } = req.body;
 
     const numericKcal = parseInt(kcal, 10);
     const numericProt = parseInt(prot, 10);
     const numericCarb = parseInt(carb, 10);
     const numericFat = parseInt(fat, 10);
-    const numericUnityId = parseInt(unity_id, 10);
+    const numericProportion = parseInt(proportion, 10);
 
     try {
       const newFood = await Food.create({
@@ -46,7 +46,8 @@ const foodController = {
         prot: numericProt,
         carb: numericCarb,
         fat: numericFat,
-        unity_id: numericUnityId,
+        unity_id: unity,
+        proportion: numericProportion
       });
 
       res.json(newFood);

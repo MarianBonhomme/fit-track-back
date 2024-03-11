@@ -25,25 +25,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    unity_id: {
+    unity: {
+      type: DataTypes.ENUM('Gram', 'Litre', 'Portion'),
+      allowNull: false,
+    },
+    proportion: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'Unity',
-        key: 'id'
-      }
     },
   }, {
     timestamps: true,
     freezeTableName: true,
   })
-
-  Food.assiociate = (models) => {
-    Food.belongsTo(models.Unity, {
-      foreignKey: 'unity_id',
-      as: "unity"
-    })
-  }
 
   return Food
 }
