@@ -46,7 +46,7 @@ const foodController = {
         prot: numericProt,
         carb: numericCarb,
         fat: numericFat,
-        unity_id: unity,
+        unity: unity,
         proportion: numericProportion
       });
 
