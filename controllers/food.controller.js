@@ -1,10 +1,39 @@
-const { Food } = require("../models");
+const { Food, FoodConsumption } = require("../models");
 
 const foodController = {
   getAll: async (req, res) => {
     try {
       const foods = await Food.findAll();
       res.json(foods);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
+
+  getAllWithTotalQuantity: async (req, res) => {
+    try {
+      const foods = await Food.findAll();
+  
+      const foodsWithTotalQuantity = await Promise.all(foods.map(async (food) => {
+        const totalQuantity = await FoodConsumption.sum('quantity', {
+          where: { food_id: food.id }
+        });
+  
+        return {
+          id: food.id,
+          name: food.name,
+          kcal: food.kcal,
+          prot: food.prot,
+          carb: food.carb,
+          fat: food.fat,
+          unity: food.unity,
+          proportion: food.proportion,
+          totalQuantity: totalQuantity || 0
+        };
+      }));
+  
+      res.json(foodsWithTotalQuantity);
     } catch (error) {
       console.error(error);
       res.status(500).send("Server Error");
@@ -25,7 +54,7 @@ const foodController = {
       }
     } catch (error) {
       console.error(error);
-      res.status(500).send("Erreur serveur");
+      res.status(500).send("Server Error");
     }
   },
 
