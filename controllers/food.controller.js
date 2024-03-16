@@ -29,6 +29,9 @@ const foodController = {
           fat: food.fat,
           unity: food.unity,
           proportion: food.proportion,
+          position: food.position,
+          is_favorite: food.is_favorite,
+          is_active: food.is_active,
           totalQuantity: totalQuantity || 0
         };
       }));
@@ -59,7 +62,7 @@ const foodController = {
   },
 
   addOne: async (req, res) => {
-    const { name, id, kcal, prot, carb, fat, unity, proportion } = req.body;
+    const { name, id, kcal, prot, carb, fat, unity, proportion, is_favorite } = req.body;
 
     const numericKcal = parseInt(kcal, 10);
     const numericProt = parseInt(prot, 10);
@@ -76,6 +79,7 @@ const foodController = {
         carb: numericCarb,
         fat: numericFat,
         unity: unity,
+        is_favorite: is_favorite,
         proportion: numericProportion
       });
 
