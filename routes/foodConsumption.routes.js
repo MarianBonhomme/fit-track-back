@@ -4,5 +4,8 @@ const foodConsumptionController = require('../controllers/foodConsumption.contro
 const router = express.Router();
 
 router.get('/', foodConsumptionController.getAll);
+router.post('/', foodConsumptionController.addOne);
+router.put('/:id', foodConsumptionController.updateOneById);
+router.delete('/:id', foodConsumptionController.deleteOneById);
 
 module.exports = router;
