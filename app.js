@@ -7,6 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+app.use('/uploads', express.static('uploads'));
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 

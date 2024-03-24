@@ -14,28 +14,31 @@ const foodController = {
   getAllWithTotalQuantity: async (req, res) => {
     try {
       const foods = await Food.findAll();
-  
-      const foodsWithTotalQuantity = await Promise.all(foods.map(async (food) => {
-        const totalQuantity = await FoodConsumption.sum('quantity', {
-          where: { food_id: food.id }
-        });
-  
-        return {
-          id: food.id,
-          name: food.name,
-          kcal: food.kcal,
-          prot: food.prot,
-          carb: food.carb,
-          fat: food.fat,
-          unity: food.unity,
-          proportion: food.proportion,
-          position: food.position,
-          is_favorite: food.is_favorite,
-          is_active: food.is_active,
-          totalQuantity: totalQuantity || 0
-        };
-      }));
-  
+
+      const foodsWithTotalQuantity = await Promise.all(
+        foods.map(async (food) => {
+          const totalQuantity = await FoodConsumption.sum("quantity", {
+            where: { food_id: food.id },
+          });
+
+          return {
+            id: food.id,
+            name: food.name,
+            image: food.image,
+            kcal: food.kcal,
+            prot: food.prot,
+            carb: food.carb,
+            fat: food.fat,
+            unity: food.unity,
+            proportion: food.proportion,
+            position: food.position,
+            is_favorite: food.is_favorite,
+            is_active: food.is_active,
+            totalQuantity: totalQuantity || 0,
+          };
+        })
+      );
+
       res.json(foodsWithTotalQuantity);
     } catch (error) {
       console.error(error);
@@ -71,8 +74,14 @@ const foodController = {
     const numericProportion = parseInt(proportion, 10);
 
     try {
+      let imagePath = null;
+      if (req.file && req.file.path) {
+        imagePath = req.file.path;
+      }
+
       const newFood = await Food.create({
         name: name,
+        image: imagePath,
         id: id,
         kcal: numericKcal,
         prot: numericProt,
@@ -80,7 +89,7 @@ const foodController = {
         fat: numericFat,
         unity: unity,
         is_favorite: is_favorite,
-        proportion: numericProportion
+        proportion: numericProportion,
       });
 
       res.json(newFood);
@@ -93,17 +102,29 @@ const foodController = {
   updateOneById: async (req, res) => {
     const { id } = req.params;
     try {
-      const [updatedRows] = await Food.update(req.body, {
-        where: { id: id },
-      });
-      if (updatedRows > 0) {
-        const updatedFood = await Food.findOne({
+      let updatedFood;
+
+      if (req.file && req.file.path) {
+        const imagePath = req.file.path;
+        const [updatedRows] = await Food.update(
+          { ...req.body, image: imagePath },
+          { where: { id: id } }
+        );
+        if (updatedRows > 0) {
+          updatedFood = await Food.findOne({ where: { id: id } });
+          return res.json(updatedFood);
+        }
+      } else {
+        const [updatedRows] = await Food.update(req.body, {
           where: { id: id },
         });
-        res.json(updatedFood);
-      } else {
-        res.status(404).send(`Food with id ${id} not found`);
+        if (updatedRows > 0) {
+          updatedFood = await Food.findOne({ where: { id: id } });
+          return res.json(updatedFood);
+        }
       }
+
+      res.status(404).send(`Food with id ${id} not found`);
     } catch (error) {
       console.error(error);
       res.status(500).send("Server Error");
