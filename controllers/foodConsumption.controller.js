@@ -8,7 +8,6 @@ const foodConsumptionController = {
           {
             model: Food,
             as: 'food',
-            attributes: ['name', 'image', 'kcal', 'prot', 'carb', 'fat', 'unity', 'proportion']
           }
         ]
       });
@@ -36,7 +35,6 @@ const foodConsumptionController = {
           {
             model: Food,
             as: 'food',
-            attributes: ['name', 'image', 'kcal', 'prot', 'carb', 'fat', 'unity', 'proportion']
           }
         ]
       });
@@ -61,7 +59,6 @@ const foodConsumptionController = {
             {
               model: Food,
               as: 'food',
-              attributes: ['name', 'image', 'kcal', 'prot', 'carb', 'fat', 'unity', 'proportion']
             }
           ],
         });
