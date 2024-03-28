@@ -89,6 +89,20 @@ const foodConsumptionController = {
     }
   },
 
+  countDistinctDates: async (req, res) => {
+    try {
+      const distinctDatesCount = await FoodConsumption.count({
+        distinct: true,
+        col: 'date'
+      });
+
+      res.send(distinctDatesCount.toString());
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  }
+
 };
 
 module.exports = foodConsumptionController;

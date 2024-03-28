@@ -7,5 +7,6 @@ router.get('/', foodConsumptionController.getAll);
 router.post('/', foodConsumptionController.addOne);
 router.put('/:id', foodConsumptionController.updateOneById);
 router.delete('/:id', foodConsumptionController.deleteOneById);
+router.get('/datesCount', foodConsumptionController.countDistinctDates);
 
 module.exports = router;
