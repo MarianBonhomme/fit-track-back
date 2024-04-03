@@ -65,12 +65,13 @@ const foodController = {
   },
 
   addOne: async (req, res) => {
-    const { name, id, kcal, prot, carb, fat, unity, proportion, is_favorite } = req.body;
+    const { name, id, kcal, prot, carb, fat, price, unity, proportion, is_favorite } = req.body;
 
     const numericKcal = parseInt(kcal, 10);
     const numericProt = parseInt(prot, 10);
     const numericCarb = parseInt(carb, 10);
     const numericFat = parseInt(fat, 10);
+    const numericPrice = parseInt(price, 10);
     const numericProportion = parseInt(proportion, 10);
 
     try {
@@ -87,6 +88,7 @@ const foodController = {
         prot: numericProt,
         carb: numericCarb,
         fat: numericFat,
+        price: numericPrice,
         unity: unity,
         is_favorite: is_favorite,
         proportion: numericProportion,
