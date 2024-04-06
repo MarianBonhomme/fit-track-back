@@ -9,6 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/uploads', express.static('uploads'));
 
+const userRoutes = require('./routes/user.routes');
+app.use('/user', userRoutes);
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 
