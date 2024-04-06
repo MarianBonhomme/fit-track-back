@@ -42,7 +42,25 @@ const userController = {
       console.error('Erreur lors de la connexion :', error);
       res.status(500).json({ error: 'Erreur lors de la connexion.' });
     }
-  }
+  },
+
+  getOneById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const user = await User.findOne({
+        where: { id: id },
+      });
+
+      if (user) {
+        res.json(user)
+      } else {
+        res.status(404).send(`User with id ${id} not found`)
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
 }
 
 module.exports = userController
