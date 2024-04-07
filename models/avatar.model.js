@@ -1,29 +1,22 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("User", {
+  const Avatar = sequelize.define("Avatar", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    pseudo: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
+    image: {
       type: DataTypes.STRING,
-      allowNull: false 
+      allowNull: true 
     },
   }, {
     timestamps: true,
     freezeTableName: true,
   })
 
-  User.associate = (models) => {
-    User.belongsTo(models.Avatar, {
-      foreignKey: 'avatar_id',
-      as: 'avatar'
-    })
-  }
-
-  return User
+  return Avatar
 }
