@@ -12,6 +12,9 @@ app.use('/uploads', express.static('uploads'));
 const userRoutes = require('./routes/user.routes');
 app.use('/user', userRoutes);
 
+const avatarRoutes = require('./routes/avatar.routes');
+app.use('/avatar', avatarRoutes);
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 
