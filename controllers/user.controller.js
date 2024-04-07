@@ -61,6 +61,24 @@ const userController = {
       res.status(500).send("Server Error");
     }
   },
+
+  updateOneById: async (req, res) => {
+    const { id } = req.params;
+    try {      
+      const [updatedRows] = await User.update(req.body, {
+        where: { id: id },
+      });
+      if (updatedRows > 0) {
+        const updatedUser = await User.findOne({ where: { id: id } });
+        return res.json(updatedUser);
+      }
+
+      res.status(404).send(`User with id ${id} not found`);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
 }
 
 module.exports = userController
