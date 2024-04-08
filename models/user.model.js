@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     })
     User.belongsTo(models.Color, {
       foreignKey: 'color_id',
-      as: 'color'
+      as: 'color',
     })
   }
 

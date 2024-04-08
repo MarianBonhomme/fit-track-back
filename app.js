@@ -15,6 +15,9 @@ app.use('/user', userRoutes);
 const avatarRoutes = require('./routes/avatar.routes');
 app.use('/avatar', avatarRoutes);
 
+const colorRoutes = require('./routes/color.routes');
+app.use('/color', colorRoutes);
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 
