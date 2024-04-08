@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    is_manageable: {
+      type: DataTypes.BOOLEAN,
+      default: 1,
+    }
   }, {
     timestamps: true,
     freezeTableName: true,

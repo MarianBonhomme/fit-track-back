@@ -5,14 +5,14 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     image: {
       type: DataTypes.STRING,
       allowNull: true 
     },
+    is_manageable: {
+      type: DataTypes.BOOLEAN,
+      default: 1,
+    }
   }, {
     timestamps: true,
     freezeTableName: true,

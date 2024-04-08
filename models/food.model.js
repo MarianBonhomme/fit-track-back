@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
     is_active: {
       type: DataTypes.BOOLEAN,
       defaultValue: 1
+    },
+    is_manageable: {
+      type: DataTypes.BOOLEAN,
+      default: 1,
     }
   }, {
     timestamps: true,
