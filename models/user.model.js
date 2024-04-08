@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false 
     },
-    isDarkTheme: {
+    dark_theme: {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     }
