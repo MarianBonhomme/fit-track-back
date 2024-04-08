@@ -9,6 +9,7 @@ const colors = [
   { hexa: '#202124', is_manageable: 0 },
   { hexa: '#0E1013', is_manageable: 0 },
   { hexa: '#F5F5F5', is_manageable: 0 },
+  { hexa: '#E9ECF5', is_manageable: 0 },
 ];
 
 module.exports = colors;
