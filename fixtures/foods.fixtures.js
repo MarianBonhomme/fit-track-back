@@ -1,17 +1,14 @@
 const foods = [
-  { name: 'Coffee', kcal: 0, prot: 0, carb: 0, fat: 0, unity: "Portion", proportion: 1 },
-  { name: 'Zzz', kcal: 0, prot: 0, carb: 0, fat: 0, unity: "Portion", proportion: 1 },
-  { name: 'Riz', kcal: 357, prot: 8.2, carb: 75, fat: 2.1, unity: "Gram", proportion: 1 },
-  { name: 'Viande hachée (Bouché)', kcal: 276, prot: 25, carb: 0, fat: 18, unity: "Gram", proportion: 1 },
-  { name: 'Steak Haché Façon Bouchère (Aldi)', kcal: 233, prot: 24.5, carb: 0.5, fat: 15, unity: "Gram", proportion: 1 },
-  { name: 'Oeuf', kcal: 145, prot: 12.3, carb: 0.7, fat: 10.3, unity: "Portion", proportion: 54 },
-  { name: 'Dinde', kcal: 108, prot: 24, carb: 0, fat: 1.3, unity: "Gram", proportion: 1 },
-  { name: 'Filet de Poulet', kcal: 107, prot: 23, carb: 0.5, fat: 1.7, unity: "Gram", proportion: 1 },
-  { name: 'Pates', kcal: 347, prot: 13, carb: 64, fat: 2.5, unity: "Gram", proportion: 1 },
-  { name: 'Huiles', kcal: 884, prot: 0, carb: 0, fat: 100, unity: "Litre", proportion: 1 },
-  { name: 'Chocolat Noir 85%', kcal: 584, prot: 12.5, carb: 19, fat: 46, unity: "Portion", proportion: 10 },
-  { name: 'Flocon d\'Avoine', kcal: 357, prot: 13.5, carb: 60, fat: 7.4, unity: "Gram", proportion: 1 },
-  { name: 'Whey Native Isolate', kcal: 357, prot: 95, carb: 0.2, fat: 0.4, unity: "Gram", proportion: 1 },
+  { name: 'Boeuf Haché', image: 'uploads/foods/boeuf.jpg', kcal: 300, prot: 20, carb: 2, fat: 5, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Riz Complet', image: 'uploads/foods/riz.jpg', kcal: 326, prot: 7, carb: 75, fat: 2.5, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Filet de Poulet', image: 'uploads/foods/poulet.webp', kcal: 110, prot: 23, carb: 0, fat: 1.5, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Whey Isolate', image: 'uploads/foods/whey.webp', kcal: 371, prot: 80, carb: 10, fat: 1, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Flocon d\'Avoine', image: 'uploads/foods/flocon.jpg', kcal: 372, prot: 14, carb: 59, fat: 7, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Pâtes Complètes', image: 'uploads/foods/pates.jpg', kcal: 337, prot: 11, carb: 65, fat: 2, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Chocolat Noir 85%', image: 'uploads/foods/chocolat.jpg', kcal: 561, prot: 11, carb: 24, fat: 43, unity: 'Portion', proportion: 10, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Huiles', image: 'uploads/foods/huiles.jpg', kcal: 900, prot: 0, carb: 0, fat: 100, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Oeuf Bio', image: 'uploads/foods/oeufs.jpg', kcal: 146, prot: 12.5, carb: 0, fat: 10.5, unity: 'Portion', proportion: 60, is_favorite: 0, is_active: 1, is_manageable: 0 },
+  { name: 'Café', image: 'uploads/foods/cafe.jpg', kcal: 0, prot: 0, carb: 0, fat: 0, unity: 'Portion', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0 },
 ];
 
 module.exports = foods;

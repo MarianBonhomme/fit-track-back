@@ -29,10 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    price: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
     unity: {
       type: DataTypes.ENUM('Gram', 'Litre', 'Portion'),
       allowNull: false,

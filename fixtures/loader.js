@@ -10,7 +10,7 @@ const loadFixtures = async () => {
     await db.Color.bulkCreate(colorsFixtures);
     await db.Avatar.bulkCreate(avatarsFixtures);
     await db.User.bulkCreate(usersFixtures);
-    // await db.Food.bulkCreate(foodsFixtures);
+    await db.Food.bulkCreate(foodsFixtures);
     console.log('Fixtures loaded successfully.');
   } catch (error) {
     console.error('Error loading fixtures:', error);
