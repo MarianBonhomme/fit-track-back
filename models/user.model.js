@@ -13,25 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false 
     },
-    dark_theme: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0
-    }
   }, {
     timestamps: true,
     freezeTableName: true,
   })
-
-  User.associate = (models) => {
-    User.belongsTo(models.Avatar, {
-      foreignKey: 'avatar_id',
-      as: 'avatar'
-    })
-    User.belongsTo(models.Color, {
-      foreignKey: 'color_id',
-      as: 'color',
-    })
-  }
 
   return User
 }

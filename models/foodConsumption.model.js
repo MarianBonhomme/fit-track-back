@@ -5,14 +5,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     }, 
-    food_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Food',
-        key: 'id'
-      }
-    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -31,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'food_id',
       as: "food"
     }),
-    FoodConsumption.belongsTo(models.User, {
-      foreignKey: 'user_id',
-      as: "user"
+    FoodConsumption.belongsTo(models.Profile, {
+      foreignKey: 'profile_id',
+      as: "profile"
     })
   }
 

@@ -6,7 +6,7 @@ const router = express.Router();
 const upload = require('../configs/multer.config');
 
 router.get('/', foodController.getAll);
-router.get('/totalQuantity/:userid', foodController.getAllWithTotalQuantity);
+router.get('/totalQuantity/:profileid', foodController.getAllWithTotalQuantity);
 router.get('/:id', foodController.getOneById);
 router.post('/', upload('foods').single('image'), foodController.addOne);
 router.put('/:id', upload('foods').single('image'), foodController.updateOneById);
