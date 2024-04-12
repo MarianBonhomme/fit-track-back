@@ -2,8 +2,10 @@ const { FoodConsumption, Food } = require("../models");
 
 const foodConsumptionController = {
   getAll: async (req, res) => {
+    const { userid } = req.params;
     try {
       const foodConsumptions = await FoodConsumption.findAll({
+        where: { user_id: userid },
         include: [
           {
             model: Food,
@@ -19,11 +21,12 @@ const foodConsumptionController = {
   },
 
   addOne: async (req, res) => {
-    const { food_id, quantity, date } = req.body;
+    const { food_id, quantity, date, user_id } = req.body;
     const numericQuantity = parseInt(quantity, 10);
 
     try {
       const newFoodConsumption = await FoodConsumption.create({
+        user_id: user_id,
         food_id: food_id,
         quantity: numericQuantity,
         date: date
@@ -90,8 +93,10 @@ const foodConsumptionController = {
   },
 
   countDistinctDates: async (req, res) => {
+    const { userid } = req.params
     try {
       const distinctDatesCount = await FoodConsumption.count({
+        where: { user_id: userid },
         distinct: true,
         col: 'date'
       });

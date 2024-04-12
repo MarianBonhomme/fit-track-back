@@ -12,13 +12,17 @@ const foodController = {
   },
 
   getAllWithTotalQuantity: async (req, res) => {
+    const { userid } = req.params
     try {
       const foods = await Food.findAll();
 
       const foodsWithTotalQuantity = await Promise.all(
         foods.map(async (food) => {
           const totalQuantity = await FoodConsumption.sum("quantity", {
-            where: { food_id: food.id },
+            where: { 
+              food_id: food.id,
+              user_id: userid,
+            },
           });
 
           return {
