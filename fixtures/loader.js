@@ -2,6 +2,7 @@ const db = require('../models');
 const colorsFixtures = require('../fixtures/colors.fixtures');
 const avatarsFixtures = require('../fixtures/avatars.fixtures');
 const usersFixtures = require('../fixtures/users.fixtures');
+const profilesFixtures = require('../fixtures/profiles.fixtures');
 const foodsFixtures = require('../fixtures/foods.fixtures');
 
 const loadFixtures = async () => {
@@ -10,6 +11,7 @@ const loadFixtures = async () => {
     await db.Color.bulkCreate(colorsFixtures);
     await db.Avatar.bulkCreate(avatarsFixtures);
     await db.User.bulkCreate(usersFixtures);
+    await db.Profile.bulkCreate(profilesFixtures);
     await db.Food.bulkCreate(foodsFixtures);
     console.log('Fixtures loaded successfully.');
   } catch (error) {
