@@ -9,7 +9,7 @@ const foods = [
   { name: 'Huiles', image: 'uploads/foods/huiles.jpg', kcal: 900, prot: 0, carb: 0, fat: 100, unity: 'Gram', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0, category_id: 3 },
   { name: 'Oeuf Bio', image: 'uploads/foods/oeufs.jpg', kcal: 146, prot: 12.5, carb: 0, fat: 10.5, unity: 'Portion', proportion: 60, is_favorite: 0, is_active: 1, is_manageable: 0, category_id: 1 },
   { name: 'Café', image: 'uploads/foods/cafe.jpg', kcal: 0, prot: 0, carb: 0, fat: 0, unity: 'Portion', proportion: 1, is_favorite: 0, is_active: 1, is_manageable: 0, category_id: 8 },
-  { name: 'Pomme', image: 'uploads/food/pomme.jpg', kcal: 52, prot: 0, carb: 12, fat: 0, unity: 'Portion', proportion: 200, is_favorite: 0, is_active: 1, is_manageable: 0, category_id: 7 },
+  { name: 'Pomme', image: 'uploads/foods/pomme.jpg', kcal: 52, prot: 0, carb: 12, fat: 0, unity: 'Portion', proportion: 200, is_favorite: 0, is_active: 1, is_manageable: 0, category_id: 7 },
 ];
 
 module.exports = foods;
