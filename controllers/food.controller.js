@@ -12,7 +12,7 @@ const foodController = {
   },
 
   getAllWithTotalQuantity: async (req, res) => {
-    const { userid } = req.params
+    const { profileid } = req.params
     try {
       const foods = await Food.findAll();
 
@@ -21,7 +21,7 @@ const foodController = {
           const totalQuantity = await FoodConsumption.sum("quantity", {
             where: { 
               food_id: food.id,
-              user_id: userid,
+              profile_id: profileid,
             },
           });
 
