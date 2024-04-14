@@ -9,10 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    dark_theme: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0
-    }
   }, {
     timestamps: true,
     freezeTableName: true,

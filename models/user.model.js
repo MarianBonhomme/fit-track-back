@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false 
     },
+    dark_mode: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: 0,
+    }
   }, {
     timestamps: true,
     freezeTableName: true,
