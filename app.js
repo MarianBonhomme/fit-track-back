@@ -27,6 +27,12 @@ app.use('/food', foodRoutes);
 const foodConsumptionRoutes = require('./routes/foodConsumption.routes');
 app.use('/foodConsumption', foodConsumptionRoutes);
 
+const programRoutes = require('./routes/program.routes');
+app.use('/program', programRoutes);
+
+const trainingRoutes = require('./routes/training.routes');
+app.use('/training', trainingRoutes);
+
 // BDD
 const db = require("./models");
 const port = 3000;
