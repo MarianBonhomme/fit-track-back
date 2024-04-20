@@ -3,7 +3,7 @@ const colorsFixtures = require('../fixtures/colors.fixtures');
 const avatarsFixtures = require('../fixtures/avatars.fixtures');
 const usersFixtures = require('../fixtures/users.fixtures');
 const profilesFixtures = require('../fixtures/profiles.fixtures');
-const categoriesFixtures = require('../fixtures/categories.fixtures');
+const foodCategoriesFixtures = require('../fixtures/foodCategories.fixtures');
 const foodsFixtures = require('../fixtures/foods.fixtures');
 
 const loadFixtures = async () => {
@@ -13,7 +13,7 @@ const loadFixtures = async () => {
     await db.Avatar.bulkCreate(avatarsFixtures);
     await db.User.bulkCreate(usersFixtures);
     await db.Profile.bulkCreate(profilesFixtures);
-    await db.Category.bulkCreate(categoriesFixtures);
+    await db.Category.bulkCreate(foodCategoriesFixtures);
     await db.Food.bulkCreate(foodsFixtures);
     console.log('Fixtures loaded successfully.');
   } catch (error) {

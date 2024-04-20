@@ -1,4 +1,4 @@
-const categories = [
+const foodCategories = [
   { name: 'Viandes' },
   { name: 'Produits Laitiers' },
   { name: 'Matières Grasses' },
@@ -9,4 +9,4 @@ const categories = [
   { name: 'Boissons' },
 ];
 
-module.exports = categories;
+module.exports = foodCategories;

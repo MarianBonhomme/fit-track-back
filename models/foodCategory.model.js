@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Category = sequelize.define("Category", {
+  const FoodCategory = sequelize.define("FoodCategory", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true,
   })
 
-  return Category
+  return FoodCategory
 }

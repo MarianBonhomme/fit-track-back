@@ -55,9 +55,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Food.associate = (models) => {
-    Food.belongsTo(models.Category, {
-      foreignKey: 'category_id',
-      as: "category"
+    Food.belongsTo(models.FoodCategory, {
+      foreignKey: 'food_category_id',
+      as: "food_category"
     })
   }
 
