@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    is_favorite: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
   }, {
     timestamps: true,
     freezeTableName: true,

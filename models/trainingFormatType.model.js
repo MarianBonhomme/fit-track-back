@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const FormatType = sequelize.define("FormatType", {
+  const TrainingFormatType = sequelize.define("TrainingFormatType", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true,
   })
 
-  return FormatType
+  return TrainingFormatType
 }

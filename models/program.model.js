@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Program.associate = (models) => {
-    Program.belongsTo(models.Format, {
-      foreignKey: 'format_id',
-      as: "format"
+    Program.belongsTo(models.TrainingFormat, {
+      foreignKey: 'training_format_id',
+      as: "training_format"
     })
     Program.belongsTo(models.ExerciseVariation, {
       foreignKey: 'exercise_variation_id',
