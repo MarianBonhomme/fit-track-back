@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     is_finished: {
       type: DataTypes.BOOLEAN,
-      default: 0,
+      defaultValue: 0,
     },
     finished_reason: {
       type: DataTypes.STRING,

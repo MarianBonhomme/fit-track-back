@@ -9,31 +9,29 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    is_done: {
-      type: DataTypes.BOOLEAN,
-      default: 0,
-    },
     is_validate: {
       type: DataTypes.BOOLEAN,
-      default: 0,
+      defaultValue: 0,
     },
     weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    predicted_increment: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+      defaultValue: 0,
     },
     comment: {
       type: DataTypes.STRING,
       allowNull: true
     },
     time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     reps: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    weight_increment: {
       type: DataTypes.INTEGER,
       allowNull: true
     }

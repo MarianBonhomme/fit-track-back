@@ -1,5 +1,5 @@
 const programs = [
-  { name: '9D1/2/3 - Rings Chin-up', exercise_id: 2, training_format_id: 4, exercise_variation_id: 1, profile_id: 1, is_done: 0 },
+  { name: '9D1/2/3 - Rings Chin-up', exercise_id: 2, training_format_id: 4, exercise_variation_id: 1, profile_id: 1, is_finished: 0 },
   { name: '9D1/2/3 - Dips', exercise_id: 12, training_format_id: 4, exercise_variation_id: 1, profile_id: 1, is_finished: 0 },
   { name: '6D6 - Bench', exercise_id: 13, training_format_id: 3, exercise_variation_id: 1, profile_id: 1, is_finished: 1, finished_reason: 'Arrêt du Bench pour un autre exercice' },
   { name: '10D1 - OHP', exercise_id: 15, training_format_id: 1, exercise_variation_id: 1, profile_id: 1, is_finished: 1, finished_reason: 'Commencé trop haut et incrément trop haut' },
