@@ -9,9 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    is_done: {
+    is_finished: {
       type: DataTypes.BOOLEAN,
       default: 0,
+    },
+    finished_reason: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   }, {
     timestamps: true,
@@ -19,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Program.associate = (models) => {
+    Program.belongsTo(models.Exercise, {
+      foreignKey: 'exercise_id',
+      as: "exercise"
+    })
     Program.belongsTo(models.TrainingFormat, {
       foreignKey: 'training_format_id',
       as: "training_format"
