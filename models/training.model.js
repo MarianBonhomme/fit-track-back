@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
     },
+    is_last: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 0,
+    },
     weight: {
       type: DataTypes.FLOAT,
       allowNull: false,
