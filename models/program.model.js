@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     starting_date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
-    }
+    },
+    is_favorite: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 0,
+    },
   }, {
     timestamps: true,
     freezeTableName: true,
