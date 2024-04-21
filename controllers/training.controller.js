@@ -1,6 +1,19 @@
 const { Training } = require("../models");
 
 const trainingController = {
+  getAll: async (req, res) => {
+    const { profileid } = req.params;
+    try {
+      const trainings = await Training.findAll({
+        where: { profile_id: profileid },
+    });
+      res.json(trainings);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
+
   getAllByProgram: async (req, res) => {
     const { programid } = req.params;
     try {
