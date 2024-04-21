@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
+    ended_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
     is_favorite: {
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
