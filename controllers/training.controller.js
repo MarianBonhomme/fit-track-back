@@ -55,6 +55,17 @@ const trainingController = {
       res.status(500).send("Server Error");
     }
   },
+
+  addOne: async (req, res) => {
+    const newTraining = req.body;
+    try {
+      const createdTraining = await Training.create(newTraining);
+      res.json(createdTraining);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
 };
 
 module.exports = trainingController

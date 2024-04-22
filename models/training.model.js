@@ -7,10 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false,
     },
     is_validate: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: 0,
     },
     weight: {
