@@ -2,10 +2,10 @@ const { Profile } = require('../models')
 
 const profileController = {
   getAllByUserId: async (req, res) => {
-    const { userid } = req.params;
+    const { userId } = req.params;
     try {
       const profiles = await Profile.findAll({
-        where: { user_id: userid }
+        where: { user_id: userId }
       })
       if (profiles) {
         res.json(profiles)

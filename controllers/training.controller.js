@@ -1,12 +1,21 @@
-const { Training } = require("../models");
+const { Training, Program } = require("../models");
 
 const trainingController = {
   getAll: async (req, res) => {
-    const { profileid } = req.params;
+    const { profileId } = req.params;
     try {
-      const trainings = await Training.findAll({
-        where: { profile_id: profileid },
-    });
+      const programs = await Program.findAll({
+        where: { profile_id: profileId },
+        include: [{
+          model: Training,
+          as: 'trainings'
+        }]
+      });
+      console
+      let trainings = [];
+      programs.forEach(program => {
+        trainings = trainings.concat(program.trainings);
+      });
       res.json(trainings);
     } catch (error) {
       console.error(error);
@@ -15,10 +24,10 @@ const trainingController = {
   },
 
   getAllByProgram: async (req, res) => {
-    const { programid } = req.params;
+    const { programId } = req.params;
     try {
       const trainings = await Training.findAll({
-        where: { program_id: programid },
+        where: { program_id: programId },
     });
       res.json(trainings);
     } catch (error) {

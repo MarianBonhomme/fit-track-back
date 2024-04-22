@@ -2,10 +2,10 @@ const { Program } = require("../models");
 
 const programController = {
   getAll: async (req, res) => {
-    const { profileid } = req.params;
+    const { profileId } = req.params;
     try {
       const programs = await Program.findAll({
-        where: { profile_id: profileid },
+        where: { profile_id: profileId },
     });
       res.json(programs);
     } catch (error) {

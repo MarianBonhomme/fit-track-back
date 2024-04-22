@@ -3,10 +3,10 @@ const foodConsumptionController = require('../controllers/foodConsumption.contro
 
 const router = express.Router();
 
-router.get('/:profileid', foodConsumptionController.getAll);
+router.get('/:profileId', foodConsumptionController.getAll);
 router.post('/', foodConsumptionController.addOne);
 router.put('/:id', foodConsumptionController.updateOneById);
 router.delete('/:id', foodConsumptionController.deleteOneById);
-router.get('/datesCount/:profileid', foodConsumptionController.countDistinctDates);
+router.get('/datesCount/:profileId', foodConsumptionController.countDistinctDates);
 
 module.exports = router;

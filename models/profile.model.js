@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'color_id',
       as: 'color',
     })
+    Profile.hasMany(models.Program, {
+      foreignKey: 'profile_id',
+      as: 'programs'
+    });
   }
 
   return Profile
