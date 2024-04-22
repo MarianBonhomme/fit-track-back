@@ -9,13 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    is_finished: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
-    },
-    finished_reason: {
+    description: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false
     },
     starting_date: {
       type: DataTypes.DATEONLY,
@@ -23,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     ended_date: {
       type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    ended_reason: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     is_favorite: {
@@ -35,18 +35,6 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Program.associate = (models) => {
-    Program.belongsTo(models.Exercise, {
-      foreignKey: 'exercise_id',
-      as: "exercise"
-    })
-    Program.belongsTo(models.TrainingFormat, {
-      foreignKey: 'training_format_id',
-      as: "training_format"
-    })
-    Program.belongsTo(models.ExerciseVariation, {
-      foreignKey: 'exercise_variation_id',
-      as: "exercise_variation"
-    })
     Program.belongsTo(models.Profile, {
       foreignKey: 'profile_id',
       as: "profile"

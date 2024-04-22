@@ -1,17 +1,17 @@
 const programs = [
-  { name: '9D1/2/3 - Rings Chin-up', starting_date: '2024-03-20', exercise_id: 2, training_format_id: 4, exercise_variation_id: 1, profile_id: 1, is_finished: 0, is_favorite: 0 },
-  { name: '9D1/2/3 - Dips', starting_date: '2024-03-26', exercise_id: 12, training_format_id: 4, exercise_variation_id: 1, profile_id: 1, is_finished: 0, is_favorite: 0 },
-  { name: '6D6 - Bench', starting_date: '2024-03-20', ended_date: '2024-04-07', exercise_id: 13, training_format_id: 3, exercise_variation_id: 1, profile_id: 1, is_finished: 1, is_favorite: 0, finished_reason: 'Arrêt du Bench pour un autre exercice' },
-  { name: '10D1 - OHP', starting_date: '2024-03-26', ended_date: '2024-04-07', exercise_id: 15, training_format_id: 1, exercise_variation_id: 1, profile_id: 1, is_finished: 1, is_favorite: 0, finished_reason: 'Commencé trop haut et incrément trop haut' },
-  { name: '9D1/2/3 - Squat', starting_date: '2024-04-08', exercise_id: 20, training_format_id: 4, exercise_variation_id: 3, profile_id: 1, is_finished: 0, is_favorite: 0 },
+  { profile_id: 1, name: '9D1/2/3 - Rings Chin-up', description: 'Full ROM', starting_date: '2024-03-20' },
+  { profile_id: 1, name: '9D1/2/3 - Dips', description: 'Tempo as long as possible', starting_date: '2024-03-26', is_favorite: 0 },
+  { profile_id: 1, name: '6D6 - Bench', description: 'Tempo as long as possible', starting_date: '2024-03-20', ended_date: '2024-04-07', ended_reason: 'Arrêt du Bench pour un autre exercice', is_favorite: 0 },
+  { profile_id: 1, name: '10D1 - OHP', description: 'As clean as possible', starting_date: '2024-03-26', ended_date: '2024-04-07', ended_reason: 'Commencé trop haut et incrément trop haut', is_favorite: 0 },
+  { profile_id: 1, name: '9D1/2/3 - Squat', description: 'Full ROM with High Bar', starting_date: '2024-04-08', is_favorite: 0 },
 
-  { name: '10D1 - Pull-up', starting_date: '2024-03-24', exercise_id: 3, training_format_id: 1, exercise_variation_id: 4, profile_id: 2, is_finished: 0, is_favorite: 0 },
-  { name: '9D1/2/3 - Dips', starting_date: '2024-03-24', exercise_id: 12, training_format_id: 4, exercise_variation_id: 1, profile_id: 2, is_finished: 0, is_favorite: 0 },
-  { name: '10D - Pull-up', starting_date: '2024-03-24', ended_date: '2024-04-13', exercise_id: 3, training_format_id: 1, exercise_variation_id: 1, profile_id: 2, is_finished: 1, is_favorite: 0, finished_reason: 'Changement de Format' },
-  { name: '12D2/3/4 - Pull-up', starting_date: '2024-04-16', exercise_id: 3, training_format_id: 6, exercise_variation_id: 1, profile_id: 2, is_finished: 0, is_favorite: 0 },
-  { name: '6D6 - Bench', starting_date: '2024-03-24', ended_date: '2024-09-04', exercise_id: 13, training_format_id: 4, exercise_variation_id: 1, profile_id: 2, is_finished: 1, is_favorite: 0, finished_reason: 'Commencé trop haut et incrément trop haut' },
-  { name: '9D1/2/3 - Bench', starting_date: '2024-04-11', exercise_id: 13, training_format_id: 4, exercise_variation_id: 3, profile_id: 2, is_finished: 0, is_favorite: 0 },
-  { name: '9D1/2/3 - Squat', starting_date: '2024-03-26', ended_date: '2024-04-16', exercise_id: 20, training_format_id: 4, exercise_variation_id: 1, profile_id: 2, is_finished: 1, is_favorite: 0, finished_reason: 'Douleur genoux + Prépa Luc Léger' },
+  { profile_id: 2, name: '10D1 - Pull-up', description: 'High Pull-up', starting_date: '2024-03-24', is_favorite: 0 },
+  { profile_id: 2, name: '9D1/2/3 - Dips', description: '', starting_date: '2024-03-24', is_favorite: 0 },
+  { profile_id: 2, name: '10D - Pull-up', description: 'Start with 10D4 and try to 10D6 clean', starting_date: '2024-03-24', ended_date: '2024-04-13', ended_reason: 'Changement de Format', is_favorite: 0 },
+  { profile_id: 2, name: '12D2/3/4 - Pull-up', description: '', starting_date: '2024-04-16', is_favorite: 0 },
+  { profile_id: 2, name: '6D6 - Bench', description: 'Tempo as long as possible', starting_date: '2024-03-24', ended_date: '2024-09-04', ended_reason: 'Commencé trop haut et incrément trop haut', is_favorite: 0 },
+  { profile_id: 2, name: '9D1/2/3 - Bench', description: 'Tempo as long as possible', starting_date: '2024-04-11', is_favorite: 0 },
+  { profile_id: 2, name: '9D1/2/3 - Squat', description: 'No equipment', starting_date: '2024-03-26', ended_date: '2024-04-16', ended_reason: 'Douleur genoux + Prépa Luc Léger', is_favorite: 0, },
 ]
 
 module.exports = programs;

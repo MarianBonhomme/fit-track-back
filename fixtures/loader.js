@@ -8,11 +8,6 @@ const profilesFixtures = require('../fixtures/profiles.fixtures');
 const foodCategoriesFixtures = require('../fixtures/foodCategories.fixtures');
 const foodsFixtures = require('../fixtures/foods.fixtures');
 
-const exerciseCategoriesFixtures = require('../fixtures/exerciseCategories.fixtures');
-const exerciseVariationsFixtures = require('../fixtures/exerciseVariations.fixtures');
-const exercisesFixtures = require('../fixtures/exercises.fixtures');
-const trainingFormatTypesFixtures = require('../fixtures/trainingFormatTypes.fixtures');
-const trainingFormatsFixtures = require('../fixtures/trainingFormats.fixtures');
 const programsFixtures = require('../fixtures/programs.fixtures');
 const trainingsFixtures = require('../fixtures/trainings.fixtures');
 
@@ -28,11 +23,6 @@ const loadFixtures = async () => {
     await db.FoodCategory.bulkCreate(foodCategoriesFixtures);
     await db.Food.bulkCreate(foodsFixtures);
 
-    await db.ExerciseCategory.bulkCreate(exerciseCategoriesFixtures);
-    await db.ExerciseVariation.bulkCreate(exerciseVariationsFixtures);
-    await db.Exercise.bulkCreate(exercisesFixtures);
-    await db.TrainingFormatType.bulkCreate(trainingFormatTypesFixtures);
-    await db.TrainingFormat.bulkCreate(trainingFormatsFixtures);
     await db.Program.bulkCreate(programsFixtures);
     await db.Training.bulkCreate(trainingsFixtures);
     console.log('Fixtures loaded successfully.');

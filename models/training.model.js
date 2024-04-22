@@ -13,32 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
     },
-    is_last: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
-    },
     weight: {
       type: DataTypes.FLOAT,
       allowNull: false,
       defaultValue: 0,
     },
-    predicted_increment: {
+    difficulty: {
       type: DataTypes.FLOAT,
-      allowNull: true,
-      defaultValue: 0,
+      allowNull: false,
     },
     comment: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    reps: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    }
   }, {
     timestamps: true,
     freezeTableName: true,
