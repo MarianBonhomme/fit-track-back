@@ -33,6 +33,17 @@ const programController = {
       res.status(500).send("Server Error");
     }
   },
+
+  addOne: async (req, res) => {
+    const newProgram = req.body;
+    try {
+      const createdProgram = await Program.create(newProgram);
+      res.json(createdProgram);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
 };
 
 module.exports = programController
