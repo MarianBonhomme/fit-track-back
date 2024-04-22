@@ -7,5 +7,6 @@ router.get('/:profileId', trainingController.getAll);
 router.get('/program/:programId', trainingController.getAllByProgram);
 router.put('/:id', trainingController.updateOneById);
 router.post('/', trainingController.addOne);
+router.delete('/:id', trainingController.deleteOneById);
 
 module.exports = router;

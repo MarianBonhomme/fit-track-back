@@ -66,6 +66,23 @@ const trainingController = {
       res.status(500).send("Server Error");
     }
   },
+
+  deleteOneById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletedRows = await Training.destroy({
+        where: { id: id },
+      });
+      if (deletedRows > 0) {
+        res.status(200).send("Deleted successfully");
+      } else {
+        res.status(404).send(`Training with id ${id} not found`);
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
 };
 
 module.exports = trainingController
