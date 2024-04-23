@@ -1,4 +1,4 @@
-const { Program } = require("../models");
+const { Program, Training } = require("../models");
 
 const programController = {
   getAll: async (req, res) => {
@@ -6,7 +6,20 @@ const programController = {
     try {
       const programs = await Program.findAll({
         where: { profile_id: profileId },
-    });
+        include: [{
+          model: Training,
+          as: 'trainings',
+        }]
+      });
+
+      programs.forEach(program => {
+        program.trainings.sort((a, b) => {
+          const dateA = new Date(a.date).getTime();
+          const dateB = new Date(b.date).getTime();
+          return dateA - dateB;
+        });
+      });
+
       res.json(programs);
     } catch (error) {
       console.error(error);
