@@ -36,6 +36,10 @@ const programController = {
       if (updatedRows > 0) {
         const updatedProgram = await Program.findOne({
           where: { id: id },
+          include: [{
+            model: Training,
+            as: 'trainings',
+          }]
         });
         res.json(updatedProgram);
       } else {
