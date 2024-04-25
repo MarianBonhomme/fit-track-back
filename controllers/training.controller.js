@@ -11,7 +11,6 @@ const trainingController = {
           as: 'trainings'
         }]
       });
-      console
       let trainings = [];
       programs.forEach(program => {
         trainings = trainings.concat(program.trainings);
