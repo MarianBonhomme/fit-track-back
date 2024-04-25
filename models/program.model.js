@@ -13,17 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    starting_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: true,
-    },
-    ended_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: true,
-    },
-    ended_reason: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    is_completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0,
     },
     is_favorite: {
       type: DataTypes.BOOLEAN,

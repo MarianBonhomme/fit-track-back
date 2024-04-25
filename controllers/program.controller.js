@@ -54,7 +54,12 @@ const programController = {
   addOne: async (req, res) => {
     const newProgram = req.body;
     try {
-      const createdProgram = await Program.create(newProgram);
+      const createdProgram = await Program.create(newProgram, {
+        include: [{
+          model: Training,
+          as: 'trainings',
+        }]
+      });
       res.json(createdProgram);
     } catch (error) {
       console.error(error);
