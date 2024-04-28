@@ -7,9 +7,11 @@ const trainings = [
   { program_id: 1, date: '2024-04-06', weight: 31.25, is_validate: 1, difficulty: 3 },
   { program_id: 1, date: '2024-04-09', weight: 32.5, is_validate: 1, difficulty: 3 },
   { program_id: 1, date: '2024-04-13', weight: 33.75, is_validate: 1, difficulty: 4 },
-  { program_id: 1, date: '2024-04-15', weight: 35, is_validate: 1, difficulty: 4, feeling: 'Fatigué' },
+  { program_id: 1, date: '2024-04-15', weight: 35, is_validate: 1, difficulty: 4, comment: 'Fatigué' },
   { program_id: 1, date: '2024-04-18', weight: 36.25, is_validate: 1, difficulty: 3, comment: 'Facile' },
   { program_id: 1, date: '2024-04-21', weight: 37.5, is_validate: 1, difficulty: 4, comment: 'Kipping 2ème tour' },
+  { program_id: 1, date: '2024-04-23', weight: 38.75, is_validate: 1, difficulty: 5 },
+  { program_id: 1, date: '2024-04-27', weight: 40, is_validate: 1, difficulty: 5, comment: 'Kipping 2ème tour' },
 
   { program_id: 2, date: '2024-03-26', weight: 40, is_validate: 1, difficulty: 1, comment: 'tempo' },
   { program_id: 2, date: '2024-03-28', weight: 42.5, is_validate: 1, difficulty: 1, comment: 'tempo' },
@@ -20,6 +22,14 @@ const trainings = [
   { program_id: 2, date: '2024-04-13', weight: 55, is_validate: 1, difficulty: 3, comment: 'tempo' },
   { program_id: 2, date: '2024-04-16', weight: 57.5, is_validate: 1, difficulty: 4, comment: 'Reprise du comp' },
   { program_id: 2, date: '2024-04-19', weight: 60, is_validate: 1, difficulty: 4, comment: 'Fatigué mais bien' },
+  { program_id: 2, date: '2024-04-22', weight: 61.25, is_validate: 1, difficulty: 4 },
+  { program_id: 2, date: '2024-04-25', weight: 62.5, is_validate: 1, difficulty: 5 },
+  { program_id: 2, date: '2024-04-28', weight: 63.75, is_validate: 1, difficulty: 5, comment: 'Lendemain tacos' },
+
+  { program_id: 13, date: '2024-04-24', weight: 40, is_validate: 1, difficulty: 1 },
+  { program_id: 13, date: '2024-04-27', weight: 42.5, is_validate: 1, difficulty: 1 },
+
+  { program_id: 14, date: '2024-04-24', weight: 63.75, is_validate: 1, difficulty: 1 },
 
   { program_id: 3, date: '2024-03-20', weight: 50, is_validate: 1, difficulty: 2 },
   { program_id: 3, date: '2024-03-23', weight: 52.5, is_validate: 1, difficulty: 2 },
