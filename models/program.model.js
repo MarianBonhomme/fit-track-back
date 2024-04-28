@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
     },
+    pattern: {
+      type: DataTypes.ENUM('push', 'pull', 'legs', 'abs', 'cardio'),
+      allowNull: false,
+    },
   }, {
     timestamps: true,
     freezeTableName: true,
