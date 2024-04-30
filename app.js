@@ -21,6 +21,9 @@ app.use('/avatar', avatarRoutes);
 const colorRoutes = require('./routes/color.routes');
 app.use('/color', colorRoutes);
 
+const dayRoutes = require('./routes/day.routes');
+app.use('/day', dayRoutes);
+
 const foodRoutes = require('./routes/food.routes');
 app.use('/food', foodRoutes);
 

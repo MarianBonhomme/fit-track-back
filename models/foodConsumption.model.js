@@ -9,16 +9,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
   }, {
     timestamps: true,
     freezeTableName: true,
   })
 
   FoodConsumption.associate = (models) => {
+    FoodConsumption.belongsTo(models.Day, {
+      foreignKey: 'day_id',
+      as: "day"
+    }),
     FoodConsumption.belongsTo(models.Food, {
       foreignKey: 'food_id',
       as: "food"
