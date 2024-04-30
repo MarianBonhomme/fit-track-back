@@ -1,4 +1,4 @@
-const { Food, FoodConsumption } = require("../models");
+const { Food, FoodConsumption, Day } = require("../models");
 
 const foodController = {
   getAll: async (req, res) => {
@@ -23,6 +23,52 @@ const foodController = {
               food_id: food.id,
               profile_id: profileId,
             },
+          });
+
+          return {
+            id: food.id,
+            name: food.name,
+            image: food.image,
+            kcal: food.kcal,
+            prot: food.prot,
+            carb: food.carb,
+            fat: food.fat,
+            unity: food.unity,
+            proportion: food.proportion,
+            position: food.position,
+            is_favorite: food.is_favorite,
+            is_active: food.is_active,
+            totalQuantity: totalQuantity || 0,
+          };
+        })
+      );
+
+      res.json(foodsWithTotalQuantity);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
+
+  getAllWithTotalQuantityOnlyValidated: async (req, res) => {
+    const { profileId } = req.params
+    try {
+      const foods = await Food.findAll();
+
+      const foodsWithTotalQuantity = await Promise.all(
+        foods.map(async (food) => {
+          const totalQuantity = await FoodConsumption.sum("quantity", {
+            where: { 
+              food_id: food.id,
+              profile_id: profileId,
+            },
+            include: [{
+              model: Day,
+              as: 'day',
+              where: {
+                is_validate: true
+              }
+            }]
           });
 
           return {

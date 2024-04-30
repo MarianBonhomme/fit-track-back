@@ -7,6 +7,7 @@ const upload = require('../configs/multer.config');
 
 router.get('/', foodController.getAll);
 router.get('/totalQuantity/:profileId', foodController.getAllWithTotalQuantity);
+router.get('/totalQuantity/validated/:profileId', foodController.getAllWithTotalQuantityOnlyValidated);
 router.get('/:id', foodController.getOneById);
 router.post('/', upload('foods').single('image'), foodController.addOne);
 router.put('/:id', upload('foods').single('image'), foodController.updateOneById);
