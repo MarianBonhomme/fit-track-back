@@ -109,6 +109,13 @@ const foodConsumptionController = {
     try {
       const distinctDatesCount = await FoodConsumption.count({
         where: { profile_id: profileId },
+        include: [{
+          model: Day,
+          as: 'day',
+          where: {
+            is_validate: true
+          }
+        }],
         distinct: true,
         col: 'day_id'
       });
