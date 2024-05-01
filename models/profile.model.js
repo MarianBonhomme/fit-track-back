@@ -9,6 +9,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    dailyKcal: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    dailyCarb: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    dailyProt: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    dailyFat: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }
   }, {
     timestamps: true,
     freezeTableName: true,
