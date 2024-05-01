@@ -45,21 +45,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: 1
     },
-    is_manageable: {
-      type: DataTypes.BOOLEAN,
-      default: 1,
-    }
   }, {
     timestamps: true,
     freezeTableName: true,
   })
-
-  Food.associate = (models) => {
-    Food.belongsTo(models.FoodCategory, {
-      foreignKey: 'food_category_id',
-      as: "food_category"
-    })
-  }
 
   return Food
 }
