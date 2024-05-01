@@ -5,7 +5,6 @@ const foodConsumptionController = {
     const { profileId } = req.params;
     try {
       const foodConsumptions = await FoodConsumption.findAll({
-        where: { profile_id: profileId },
         include: [
           {
             model: Food,
@@ -13,7 +12,10 @@ const foodConsumptionController = {
           },
           {
             model: Day,
-            as: 'day'
+            as: 'day',
+            where: {
+              profile_id: profileId
+            }
           }
         ]
       });
@@ -25,12 +27,11 @@ const foodConsumptionController = {
   },
 
   addOne: async (req, res) => {
-    const { food_id, quantity, profile_id, day_id } = req.body;
+    const { food_id, quantity, day_id } = req.body;
     const numericQuantity = parseInt(quantity, 10);
 
     try {
       const newFoodConsumption = await FoodConsumption.create({
-        profile_id: profile_id,
         food_id: food_id,
         day_id: day_id,
         quantity: numericQuantity,
@@ -45,7 +46,7 @@ const foodConsumptionController = {
           },
           {
             model: Day,
-            as: 'day'
+            as: 'day',
           }
         ]
       });
@@ -108,12 +109,12 @@ const foodConsumptionController = {
     const { profileId } = req.params
     try {
       const distinctDatesCount = await FoodConsumption.count({
-        where: { profile_id: profileId },
         include: [{
           model: Day,
           as: 'day',
           where: {
-            is_validate: true
+            is_validate: true,
+            profile_id: profileId
           }
         }],
         distinct: true,

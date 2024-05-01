@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     Day.hasMany(models.FoodConsumption, {
       foreignKey: 'day_id',
       as: "foodConsumptions"
+    }),
+    Day.belongsTo(models.Profile, {
+      foreignKey: 'profile_id',
+      as: "profile"
     })
   }
 

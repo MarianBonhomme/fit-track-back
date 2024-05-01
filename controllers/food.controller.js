@@ -21,8 +21,16 @@ const foodController = {
           const totalQuantity = await FoodConsumption.sum("quantity", {
             where: { 
               food_id: food.id,
-              profile_id: profileId,
             },
+            include: [
+              {
+                model: Day,
+                as: 'day',
+                where: {
+                  profile_id: profileId
+                }
+              }
+            ]
           });
 
           return {
@@ -60,13 +68,13 @@ const foodController = {
           const totalQuantity = await FoodConsumption.sum("quantity", {
             where: { 
               food_id: food.id,
-              profile_id: profileId,
             },
             include: [{
               model: Day,
               as: 'day',
               where: {
-                is_validate: true
+                is_validate: true,
+                profile_id: profileId,
               }
             }]
           });

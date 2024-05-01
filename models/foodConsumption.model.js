@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     FoodConsumption.belongsTo(models.Food, {
       foreignKey: 'food_id',
       as: "food"
-    }),
-    FoodConsumption.belongsTo(models.Profile, {
-      foreignKey: 'profile_id',
-      as: "profile"
     })
   }
 
