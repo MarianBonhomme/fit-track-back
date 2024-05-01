@@ -1,10 +1,12 @@
 const { Day } = require("../models");
+const moment = require("moment")
 
 const dayController = {
   getAll: async (req, res) => {
     try {
       const days = await Day.findAll();
-      res.json(days);
+      const sortedDays = days.sort((a, b) => moment(a.date, 'YYYY-MM-DD').diff(moment(b.date, 'YYYY-MM-DD')));   
+      res.json(sortedDays);
     } catch (error) {
       console.error(error);
       res.status(500).send("Server Error");
