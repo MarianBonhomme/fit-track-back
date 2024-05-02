@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     count_for_stats: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: 0,
+      defaultValue: 1,
     }
   }, {
     timestamps: true,
