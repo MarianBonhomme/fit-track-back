@@ -73,7 +73,7 @@ const foodController = {
               model: Day,
               as: 'day',
               where: {
-                is_validate: true,
+                count_for_stats: true,
                 profile_id: profileId,
               }
             }]

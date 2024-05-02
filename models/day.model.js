@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    is_validate: {
+    count_for_stats: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: 0,
