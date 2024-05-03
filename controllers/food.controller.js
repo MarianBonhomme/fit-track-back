@@ -123,7 +123,7 @@ const foodController = {
   },
 
   addOne: async (req, res) => {
-    const { name, id, kcal, prot, carb, fat, unity, proportion, is_favorite } = req.body;
+    const { name, kcal, prot, carb, fat, unity, proportion, is_favorite } = req.body;
 
     const numericKcal = parseInt(kcal, 10);
     const numericProt = parseInt(prot, 10);
@@ -140,7 +140,6 @@ const foodController = {
       const newFood = await Food.create({
         name: name,
         image: imagePath,
-        id: id,
         kcal: numericKcal,
         prot: numericProt,
         carb: numericCarb,
