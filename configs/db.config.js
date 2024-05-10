@@ -8,7 +8,6 @@ const config = {
     host: process.env.DB_HOST,
     dialect: "mysql"
   },
-  // Autres environnements...
 };
 
 module.exports = config;
