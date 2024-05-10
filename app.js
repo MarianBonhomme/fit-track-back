@@ -38,7 +38,8 @@ app.use('/training', trainingRoutes);
 
 // BDD
 const db = require("./models");
-const port = 3000;
+const port = 3306;
+
 const startServer = async () => {
   try {
     await db.sequelize.sync({ alter: true });
@@ -47,6 +48,7 @@ const startServer = async () => {
     });
   } catch (error) {
     console.error('Erreur lors de la synchronisation de la base de données:', error);
+    process.exit(1); // Arrêter l'exécution de l'application en cas d'erreur
   }
 };
 
