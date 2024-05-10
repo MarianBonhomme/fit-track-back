@@ -5,8 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../configs/db.config.js')[env];
+const config = require('../configs/index.config');
 const db = {};
 
 let sequelize;
@@ -16,7 +15,7 @@ console.log("DB_USERNAME:", process.env.DB_USERNAME);
 console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
 console.log("DB_HOST:", process.env.DB_HOST);
 
-sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD);
+sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 fs
   .readdirSync(__dirname)
