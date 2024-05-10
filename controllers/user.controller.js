@@ -12,7 +12,7 @@ const userController = {
       }
 
       // Créer un nouvel utilisateur
-      const newUser = await User.create({ pseudo, password });
+      const newUser = await User.create({ pseudo, password, darkMode: 0 });
 
       res.json(newUser);
     } catch (error) {
