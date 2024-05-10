@@ -16,7 +16,7 @@ console.log("DB_USERNAME:", process.env.DB_USERNAME);
 console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
 console.log("DB_HOST:", process.env.DB_HOST);
 
-sequelize = new Sequelize(config.database, config.username, config.password, config);
+sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, config);
 
 fs
   .readdirSync(__dirname)
