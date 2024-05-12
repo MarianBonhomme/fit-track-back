@@ -1,16 +1,6 @@
 const { Food, FoodConsumption, Day } = require("../models");
 
 const foodController = {
-  getAll: async (req, res) => {
-    try {
-      const foods = await Food.findAll();
-      res.json(foods);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Server Error");
-    }
-  },
-
   getAllWithTotalQuantity: async (req, res) => {
     const { profileId } = req.params
     try {
@@ -73,24 +63,6 @@ const foodController = {
     }
   },
 
-  getOneById: async (req, res) => {
-    const { id } = req.params;
-    try {
-      const food = await Food.findOne({
-        where: { id: id },
-      });
-
-      if (food) {
-        res.json(food);
-      } else {
-        res.status(404).send(`Food with id ${id} not found`);
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Server Error");
-    }
-  },
-
   addOne: async (req, res) => {
     const { name, kcal, prot, carb, fat, unity, proportion, is_favorite } = req.body;
 
@@ -118,7 +90,24 @@ const foodController = {
         proportion: numericProportion,
       });
 
-      res.json(newFood);
+      const newFoodWithTotalQuantity = {
+        id: newFood.id,
+        name: newFood.name,
+        image: newFood.image,
+        kcal: newFood.kcal,
+        prot: newFood.prot,
+        carb: newFood.carb,
+        fat: newFood.fat,
+        unity: newFood.unity,
+        proportion: newFood.proportion,
+        position: newFood.position,
+        is_favorite: newFood.is_favorite,
+        is_active: newFood.is_active,
+        totalQuantity: 0,
+        totalQuantityValidated: 0,
+      }
+
+      res.json(newFoodWithTotalQuantity);
     } catch (error) {
       console.error(error);
       res.status(500).send("Server Error");
@@ -126,7 +115,7 @@ const foodController = {
   },
 
   updateOneById: async (req, res) => {
-    const { id } = req.params;
+    const { id, profileId } = req.params;
     try {
       let updatedFood;
 
@@ -146,7 +135,54 @@ const foodController = {
         });
         if (updatedRows > 0) {
           updatedFood = await Food.findOne({ where: { id: id } });
-          return res.json(updatedFood);
+
+          const totalQuantity = await FoodConsumption.sum("quantity", {
+            where: { 
+              food_id: updatedFood.id,
+            },
+            include: [
+              {
+                model: Day,
+                as: 'day',
+                where: {
+                  profile_id: profileId
+                }
+              }
+            ]
+          });
+
+          const totalQuantityValidated = await FoodConsumption.sum("quantity", {
+            where: { 
+              food_id: updatedFood.id,
+            },
+            include: [{
+              model: Day,
+              as: 'day',
+              where: {
+                count_for_stats: true,
+                profile_id: profileId,
+              }
+            }]
+          });
+
+          const updatedFoodWithTotalQuantity = {
+            id: newFood.id,
+            name: newFood.name,
+            image: newFood.image,
+            kcal: newFood.kcal,
+            prot: newFood.prot,
+            carb: newFood.carb,
+            fat: newFood.fat,
+            unity: newFood.unity,
+            proportion: newFood.proportion,
+            position: newFood.position,
+            is_favorite: newFood.is_favorite,
+            is_active: newFood.is_active,
+            totalQuantity: totalQuantity || 0,
+            totalQuantityValidated: totalQuantityValidated || 0,
+          }
+
+          return res.json(updatedFoodWithTotalQuantity);
         }
       }
 
