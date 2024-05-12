@@ -127,7 +127,55 @@ const foodController = {
         );
         if (updatedRows > 0) {
           updatedFood = await Food.findOne({ where: { id: id } });
-          return res.json(updatedFood);
+
+          const totalQuantity = await FoodConsumption.sum("quantity", {
+            where: { 
+              food_id: updatedFood.id,
+            },
+            include: [
+              {
+                model: Day,
+                as: 'day',
+                where: {
+                  profile_id: profileId
+                }
+              }
+            ]
+          });
+
+          const totalQuantityValidated = await FoodConsumption.sum("quantity", {
+            where: { 
+              food_id: updatedFood.id,
+            },
+            include: [{
+              model: Day,
+              as: 'day',
+              where: {
+                count_for_stats: true,
+                profile_id: profileId,
+              }
+            }]
+          });
+
+          const updatedFoodWithTotalQuantity = {
+            id: updatedFood.dataValues.id,
+            name: updatedFood.dataValues.name,
+            image: updatedFood.dataValues.image,
+            kcal: updatedFood.dataValues.kcal,
+            prot: updatedFood.dataValues.prot,
+            carb: updatedFood.dataValues.carb || 0,
+            fat: updatedFood.dataValues.fat || 0,
+            unity: updatedFood.dataValues.unity || "Gram",
+            proportion: updatedFood.dataValues.proportion || 1,
+            is_favorite: updatedFood.dataValues.is_favorite || false,
+            is_active: updatedFood.dataValues.is_active || true,
+            createdAt: updatedFood.dataValues.createdAt,
+            updatedAt: updatedFood.dataValues.updatedAt,
+            totalQuantity: totalQuantity || 0,
+            totalQuantityValidated: totalQuantityValidated || 0
+          };
+
+          return res.json(updatedFoodWithTotalQuantity);
         }
       } else {
         const [updatedRows] = await Food.update(req.body, {
@@ -166,21 +214,22 @@ const foodController = {
           });
 
           const updatedFoodWithTotalQuantity = {
-            id: newFood.id,
-            name: newFood.name,
-            image: newFood.image,
-            kcal: newFood.kcal,
-            prot: newFood.prot,
-            carb: newFood.carb,
-            fat: newFood.fat,
-            unity: newFood.unity,
-            proportion: newFood.proportion,
-            position: newFood.position,
-            is_favorite: newFood.is_favorite,
-            is_active: newFood.is_active,
+            id: updatedFood.dataValues.id,
+            name: updatedFood.dataValues.name,
+            image: updatedFood.dataValues.image,
+            kcal: updatedFood.dataValues.kcal,
+            prot: updatedFood.dataValues.prot,
+            carb: updatedFood.dataValues.carb || 0,
+            fat: updatedFood.dataValues.fat || 0,
+            unity: updatedFood.dataValues.unity || "Gram",
+            proportion: updatedFood.dataValues.proportion || 1,
+            is_favorite: updatedFood.dataValues.is_favorite || false,
+            is_active: updatedFood.dataValues.is_active || true,
+            createdAt: updatedFood.dataValues.createdAt,
+            updatedAt: updatedFood.dataValues.updatedAt,
             totalQuantity: totalQuantity || 0,
-            totalQuantityValidated: totalQuantityValidated || 0,
-          }
+            totalQuantityValidated: totalQuantityValidated || 0
+          };
 
           return res.json(updatedFoodWithTotalQuantity);
         }
