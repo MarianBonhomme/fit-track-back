@@ -1,4 +1,4 @@
-const { Profile } = require('../models')
+const { Profile, Avatar, Color } = require('../models')
 
 const profileController = {
   getAllByUserId: async (req, res) => {
