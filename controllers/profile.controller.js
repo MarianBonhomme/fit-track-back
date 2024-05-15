@@ -5,7 +5,17 @@ const profileController = {
     const { userId } = req.params;
     try {
       const profiles = await Profile.findAll({
-        where: { user_id: userId }
+        where: { user_id: userId },
+        include: [
+          {
+            model: Avatar,
+            as: 'avatar',
+          },
+          {
+            model: Color,
+            as: 'color',
+          }
+        ]
       })
       if (profiles) {
         res.json(profiles)
@@ -23,6 +33,16 @@ const profileController = {
     try {
       const profile = await Profile.findOne({
         where: { id: id },
+        include: [
+          {
+            model: Avatar,
+            as: 'avatar',
+          },
+          {
+            model: Color,
+            as: 'color',
+          }
+        ]
       });
 
       if (profile) {
@@ -43,7 +63,19 @@ const profileController = {
         where: { id: id },
       });
       if (updatedRows > 0) {
-        const updatedProfile = await Profile.findOne({ where: { id: id } });
+        const updatedProfile = await Profile.findOne({ 
+          where: { id: id },
+          include: [
+            {
+              model: Avatar,
+              as: 'avatar',
+            },
+            {
+              model: Color,
+              as: 'color',
+            }
+          ]
+        });
         return res.json(updatedProfile);
       }
 
