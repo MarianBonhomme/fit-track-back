@@ -42,6 +42,10 @@ app.get('/health', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 // BDD
 const db = require("./models");
 const port = 3306;
