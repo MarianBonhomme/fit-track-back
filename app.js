@@ -38,6 +38,10 @@ app.use('/program', programRoutes);
 const trainingRoutes = require('./routes/training.routes');
 app.use('/training', trainingRoutes);
 
+app.get('/health', (req, res) => {
+  res.sendStatus(200);
+});
+
 // BDD
 const db = require("./models");
 const port = 3306;
