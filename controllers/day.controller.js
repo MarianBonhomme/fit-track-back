@@ -41,7 +41,8 @@ const dayController = {
     try {
       const formattedDate = moment(date).format('YYYY-MM-DD');
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-      console.log(formattedDate);
+      console.log(date);
+      console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       const day = await Day.findOne({
         where: { 
