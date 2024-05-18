@@ -39,9 +39,10 @@ const dayController = {
   getOneByDateAndProfileId: async (req, res) => {
     const { date, profileId } = req.params;
     try {
+      const formattedDate = moment(date).format('YYYY-MM-DD');
       const day = await Day.findOne({
         where: { 
-          date: date,
+          date: formattedDate,
           profile_id: profileId
         },
       });
