@@ -40,6 +40,7 @@ const dayController = {
     const { date, profileId } = req.params;
     try {
       const formattedDate = moment(date).format('YYYY-MM-DD');
+      console.log(formattedDate);
       const day = await Day.findOne({
         where: { 
           date: formattedDate,
