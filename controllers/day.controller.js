@@ -39,7 +39,7 @@ const dayController = {
   getOneByDateAndProfileId: async (req, res) => {
     const { date, profileId } = req.params;
     try {
-      const localDate = moment(date).format('YYYY-MM-DD');
+      const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       console.log(date)
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
