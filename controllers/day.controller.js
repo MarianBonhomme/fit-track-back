@@ -39,12 +39,15 @@ const dayController = {
   getOneByDateAndProfileId: async (req, res) => {
     const { date, profileId } = req.params;
     try {
+      const isoDate = moment(date).utc().format('YYYY-MM-DD');
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       console.log(date)
       console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+      console.log(isoDate)
+      console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       const day = await Day.findOne({
         where: { 
-          date: date,
+          date: isoDate,
           profile_id: profileId
         },
       });
