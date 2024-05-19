@@ -40,11 +40,6 @@ const dayController = {
     const { date, profileId } = req.params;
     try {
       const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
-      console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-      console.log(date)
-      console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-      console.log(localDate)
-      console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       const day = await Day.findOne({
         where: { 
           date: localDate,
@@ -81,8 +76,9 @@ const dayController = {
   addOne: async (req, res) => {
     const { date, profile_id } = req.body;
     try {
+      const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
       const createdDay = await Day.create({
-        date: date,
+        date: localDate,
         profile_id: profile_id,
       });
 
