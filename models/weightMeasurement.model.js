@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
+    weight_value: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
     is_fasting: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

@@ -14,6 +14,23 @@ const weightMeasurementController = {
     }
   },
 
+  addOne: async (req, res) => {
+    const weightMeasurementToAdd = req.body;
+
+    try {
+      const newWeightMeasurement = await WeightMeasurement.create({
+        weight_value: weightMeasurementToAdd.weightValue,
+        date: weightMeasurementToAdd.date,
+        is_fasting: weightMeasurementToAdd.isFasting,
+      });
+
+      res.json(newWeightMeasurement);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+    }
+  },
+
   deleteOneById: async (req, res) => {
     const { id } = req.params;
     try {

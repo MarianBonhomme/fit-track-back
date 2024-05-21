@@ -4,5 +4,7 @@ const weightMeasurementController = require('../controllers/weightMeasurement.co
 const router = express.Router();
 
 router.get('/:profileId', weightMeasurementController.getAll);
+router.post('/', weightMeasurementController.addOne);
+
 
 module.exports = router;
