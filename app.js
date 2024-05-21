@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 
 // BDD
 const db = require("./models");
-const port = 3306;
+const port = 3000;
 
 const startServer = async () => {
   try {
