@@ -36,6 +36,9 @@ app.use('/program', programRoutes);
 const trainingRoutes = require('./routes/training.routes');
 app.use('/training', trainingRoutes);
 
+const weightMeasurementRoutes = require('./routes/weightMeasurement.routes');
+app.use('/weightMeasurement', weightMeasurementRoutes);
+
 app.get('/health', (req, res) => {
   res.sendStatus(200);
 });
