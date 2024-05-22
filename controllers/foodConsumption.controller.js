@@ -65,7 +65,7 @@ const foodConsumptionController = {
         where: { id: id },
       });
       if (updatedRows > 0) {
-        const updatedFood = await FoodConsumption.findOne({
+        const updatedFoodConsumption = await FoodConsumption.findOne({
           where: { id: id },
           include: [
             {
@@ -78,7 +78,7 @@ const foodConsumptionController = {
             }
           ],
         });
-        res.json(updatedFood);
+        res.json(updatedFoodConsumption);
       } else {
         res.status(404).send(`FoodConsumption with id ${id} not found`);
       }
