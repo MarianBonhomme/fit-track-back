@@ -1,4 +1,5 @@
 const { Training, Program } = require("../models");
+const moment = require("moment")
 
 const trainingController = {
   getAll: async (req, res) => {
@@ -58,7 +59,11 @@ const trainingController = {
   addOne: async (req, res) => {
     const newTraining = req.body;
     try {
-      const createdTraining = await Training.create(newTraining);
+      const localDate = moment.tz(newTraining.date, 'Europe/Paris').format('YYYY-MM-DD');
+      const createdTraining = await Training.create({
+        ...newTraining,
+        date: localDate
+      });
       res.json(createdTraining);
     } catch (error) {
       console.error(error);

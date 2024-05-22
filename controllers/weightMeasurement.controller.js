@@ -1,4 +1,5 @@
 const { WeightMeasurement } = require("../models");
+const moment = require("moment")
 
 const weightMeasurementController = {
   getAll: async (req, res) => {
@@ -20,9 +21,11 @@ const weightMeasurementController = {
     const numericWeightValue = parseFloat(weight_value, 10)
 
     try {
+      const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
       const newWeightMeasurement = await WeightMeasurement.create({
+        
         weight_value: numericWeightValue,
-        date: date,
+        date: localDate,
         is_fasting: is_fasting,
         profile_id: profile_id
       });
