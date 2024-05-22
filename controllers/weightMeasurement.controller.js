@@ -5,7 +5,8 @@ const weightMeasurementController = {
     const { profileId } = req.params;
     try {
       const weightMeasurements = await WeightMeasurement.findAll({
-        where: {profile_id: profileId}
+        where: {profile_id: profileId},
+        order: [['date', 'ASC']]
       });
       res.json(weightMeasurements);
     } catch (error) {
