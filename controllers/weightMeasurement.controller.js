@@ -17,7 +17,7 @@ const weightMeasurementController = {
   },
 
   addOne: async (req, res) => {
-    const { weight_value, date, is_fasting, profile_id } = req.body;
+    const { weight_value, date, profile_id } = req.body;
     const numericWeightValue = parseFloat(weight_value, 10)
 
     try {
@@ -26,7 +26,6 @@ const weightMeasurementController = {
         
         weight_value: numericWeightValue,
         date: localDate,
-        is_fasting: is_fasting,
         profile_id: profile_id
       });
 

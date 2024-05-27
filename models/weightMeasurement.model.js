@@ -13,11 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
       allowNull: false
     },
-    is_fasting: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      default: 1,
-    }
   }, {
     timestamps: true,
     freezeTableName: true,
