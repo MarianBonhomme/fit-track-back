@@ -3,11 +3,11 @@ const moment = require("moment")
 
 const dayController = {
   getAll: async (req, res) => {
-    const { profileId } = req.params 
+    const { userId } = req.params 
     try {
       const days = await Day.findAll({
         where: {
-          profile_id: profileId
+          user_id: userId
         }
       });
       const sortedDays = days.sort((a, b) => moment(a.date, 'YYYY-MM-DD').diff(moment(b.date, 'YYYY-MM-DD')));   
@@ -36,14 +36,14 @@ const dayController = {
     }
   },
 
-  getOneByDateAndProfileId: async (req, res) => {
-    const { date, profileId } = req.params;
+  getOneByDateAndUserId: async (req, res) => {
+    const { date, userId } = req.params;
     try {
       const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
       const day = await Day.findOne({
         where: { 
           date: localDate,
-          profile_id: profileId
+          user_id: userId
         },
       });
       res.json(day);
@@ -74,12 +74,12 @@ const dayController = {
   },
 
   addOne: async (req, res) => {
-    const { date, profile_id } = req.body;
+    const { date, user_id } = req.body;
     try {
       const localDate = moment.tz(date, 'Europe/Paris').format('YYYY-MM-DD');
       const createdDay = await Day.create({
         date: localDate,
-        profile_id: profile_id,
+        user_id: user_id,
       });
 
       res.json(createdDay);

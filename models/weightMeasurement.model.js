@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   WeightMeasurement.associate = (models) => {
-    WeightMeasurement.belongsTo(models.Profile, {
-      foreignKey: 'profile_id',
-      as: "profile"
+    WeightMeasurement.belongsTo(models.User, {
+      foreignKey: 'user_id',
+      as: "user"
     })
   }
 

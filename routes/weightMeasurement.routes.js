@@ -3,7 +3,7 @@ const weightMeasurementController = require('../controllers/weightMeasurement.co
 
 const router = express.Router();
 
-router.get('/:profileId', weightMeasurementController.getAll);
+router.get('/:userId', weightMeasurementController.getAll);
 router.post('/', weightMeasurementController.addOne);
 router.put('/:id', weightMeasurementController.updateOneById);
 

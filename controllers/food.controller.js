@@ -2,7 +2,7 @@ const { Food, FoodConsumption, Day } = require("../models");
 
 const foodController = {
   getAllWithTotalQuantity: async (req, res) => {
-    const { profileId } = req.params
+    const { userId } = req.params
     try {
       const foods = await Food.findAll();
 
@@ -17,7 +17,7 @@ const foodController = {
                 model: Day,
                 as: 'day',
                 where: {
-                  profile_id: profileId
+                  user_id: userId
                 }
               }
             ]
@@ -32,7 +32,7 @@ const foodController = {
               as: 'day',
               where: {
                 count_for_stats: true,
-                profile_id: profileId,
+                user_id: userId,
               }
             }]
           });
@@ -115,7 +115,7 @@ const foodController = {
   },
 
   updateOneById: async (req, res) => {
-    const { id, profileId } = req.params;
+    const { id, userId } = req.params;
     try {
       let updatedFood;
 
@@ -137,7 +137,7 @@ const foodController = {
                 model: Day,
                 as: 'day',
                 where: {
-                  profile_id: profileId
+                  user_id: userId
                 }
               }
             ]
@@ -152,7 +152,7 @@ const foodController = {
               as: 'day',
               where: {
                 count_for_stats: true,
-                profile_id: profileId,
+                user_id: userId,
               }
             }]
           });
@@ -193,7 +193,7 @@ const foodController = {
                 model: Day,
                 as: 'day',
                 where: {
-                  profile_id: profileId
+                  user_id: userId
                 }
               }
             ]
@@ -208,7 +208,7 @@ const foodController = {
               as: 'day',
               where: {
                 count_for_stats: true,
-                profile_id: profileId,
+                user_id: userId,
               }
             }]
           });

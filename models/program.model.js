@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Program.associate = (models) => {
-    Program.belongsTo(models.Profile, {
-      foreignKey: 'profile_id',
-      as: "profile"
+    Program.belongsTo(models.User, {
+      foreignKey: 'user_id',
+      as: "user"
     })
     Program.hasMany(models.Training, {
       foreignKey: 'program_id',

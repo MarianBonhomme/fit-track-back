@@ -2,10 +2,10 @@ const { Program, Training } = require("../models");
 
 const programController = {
   getAll: async (req, res) => {
-    const { profileId } = req.params;
+    const { userId } = req.params;
     try {
       const programs = await Program.findAll({
-        where: { profile_id: profileId },
+        where: { user_id: userId },
         include: [{
           model: Training,
           as: 'trainings',

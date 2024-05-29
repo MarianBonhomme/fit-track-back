@@ -12,9 +12,6 @@ app.use('/uploads', express.static('uploads'));
 const userRoutes = require('./routes/user.routes');
 app.use('/user', userRoutes);
 
-const profileRoutes = require('./routes/profile.routes');
-app.use('/profile', profileRoutes);
-
 const avatarRoutes = require('./routes/avatar.routes');
 app.use('/avatar', avatarRoutes);
 

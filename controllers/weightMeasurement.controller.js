@@ -3,10 +3,10 @@ const moment = require("moment")
 
 const weightMeasurementController = {
   getAll: async (req, res) => {
-    const { profileId } = req.params;
+    const { userId } = req.params;
     try {
       const weightMeasurements = await WeightMeasurement.findAll({
-        where: {profile_id: profileId},
+        where: {user_id: userId},
         order: [['date', 'ASC']]
       });
       res.json(weightMeasurements);
@@ -17,7 +17,7 @@ const weightMeasurementController = {
   },
 
   addOne: async (req, res) => {
-    const { weight_value, date, profile_id } = req.body;
+    const { weight_value, date, user_id } = req.body;
     const numericWeightValue = parseFloat(weight_value, 10)
 
     try {
@@ -26,7 +26,7 @@ const weightMeasurementController = {
         
         weight_value: numericWeightValue,
         date: localDate,
-        profile_id: profile_id
+        user_id: user_id
       });
 
       res.json(newWeightMeasurement);

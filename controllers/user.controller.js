@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Avatar, Color } = require('../models')
 
 const userController = {
   signup: async (req, res) => {
@@ -12,7 +12,12 @@ const userController = {
       }
 
       // Créer un nouvel utilisateur
-      const newUser = await User.create({ pseudo, password, dark_mode: 0 });
+      const newUser = await User.create({ 
+        pseudo, 
+        password,
+        avatar_id: 1,
+        color_id: 1,
+      });
 
       res.json(newUser);
     } catch (error) {
@@ -49,6 +54,16 @@ const userController = {
     try {
       const user = await User.findOne({
         where: { id: id },
+        include: [
+          {
+            model: Avatar,
+            as: 'avatar',
+          },
+          {
+            model: Color,
+            as: 'color',
+          }
+        ]
       });
 
       if (user) {
@@ -69,7 +84,19 @@ const userController = {
         where: { id: id },
       });
       if (updatedRows > 0) {
-        const updatedUser = await User.findOne({ where: { id: id } });
+        const updatedUser = await User.findOne({ 
+          where: { id: id },
+          include: [
+            {
+              model: Avatar,
+              as: 'avatar',
+            },
+            {
+              model: Color,
+              as: 'color',
+            }
+          ]
+        });
         return res.json(updatedUser);
       }
 

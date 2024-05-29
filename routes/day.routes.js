@@ -3,9 +3,9 @@ const dayController = require('../controllers/day.controller');
 
 const router = express.Router();
 
-router.get('/:profileId', dayController.getAll);
+router.get('/:userId', dayController.getAll);
 router.get('/:id', dayController.getOneById);
-router.get('/date/:date/:profileId', dayController.getOneByDateAndProfileId);
+router.get('/date/:date/:userId', dayController.getOneByDateAndUserId);
 router.post('/', dayController.addOne);
 router.put('/:id', dayController.updateOneById);
 router.delete('/:id', dayController.deleteOneById);
